@@ -1,0 +1,24 @@
+
+
+mysql --user <DB_USER> -p
+
+You should be prompted for your password.
+
+Once you have the MySQL command line open you can issue the following commands. Some of these are unnecessary and are only for informational purposes.
+
+SHOW DATABASES;
+USE <DB_NAME>;
+SHOW TABLES;
+SELECT option_name FROM wp_options;
+
+Here you should see a list of all of the columns in wp_options. The ones we are interested in are “home” and “siteurl”. Next issue the following commands on the MySQL command line to update the values in the database. For each of the option_value parameters below, ensure to set it to the URL of your WordPress install.
+
+
+SELECT * FROM wp_options WHERE option_name = 'home';
+UPDATE wp_options SET option_value="http://new_host/wordpress" WHERE option_name = "home";
+
+SELECT * FROM wp_options WHERE option_name = 'siteurl';
+UPDATE wp_options SET option_value="http://new_host/wordpress" WHERE option_name = "siteurl";
+
+
+Once the above changes have been made, you should once again be able to access your WordPress login page.

@@ -1,0 +1,29 @@
+helm upgrade parsing .                                                                  
+
+Error: could not find tiller
+
+
+Solution: 
+
+helm init
+
+kubectl --namespace kube-system get serviceaccount
+
+kubectl --namespace kube-system get clusterrole
+
+kubectl --namespace kube-system get clusterrolebinding
+
+
+kubectl --namespace kube-system get deploy tiller-deploy -o yaml
+ 
+ 
+kubectl --namespace kube-system patch deploy tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
+
+helm upgrade parsing .
+ 
+ 
+
+
+----------------Ref--------
+https://www.ibm.com/support/pages/error-could-not-find-tiller
+https://github.com/helm/helm/issues/4685

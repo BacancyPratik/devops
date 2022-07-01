@@ -1,0 +1,3 @@
+Create lightsail, ubuntu 18+ and assign static ip.
+Install https://github.com/angristan/openvpn-install
+Open port : 1194 UDP in lightsail network
